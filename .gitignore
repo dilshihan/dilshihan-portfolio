@@ -29,5 +29,5 @@ backup/
 .env
 
 # Large binary model files (stored separately)
-public/models/*.glb
-public/models/*.hdr
+# public/models/*.glb
+# public/models/*.hdr
