@@ -9,14 +9,24 @@
 }
 .social-icons {
   position: absolute;
-  left: -20px;
-  bottom: 20px;
+  left: 30px;
+  bottom: 0;
   display: none;
   flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  gap: 20px;
   z-index: 999;
-  padding: 10px;
+  padding-bottom: 20px;
 }
+.social-icons::after {
+  content: "";
+  width: 1px;
+  height: 120px;
+  background-color: var(--accentColor);
+  opacity: 0.6;
+  margin-top: 10px;
+}
+
 .social-icons:hover {
   transition: 0.3s;
   color: var(--backgroundColor);
@@ -26,10 +36,16 @@
   /* transform: scale(1.2); */
 }
 .social-icons span {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+.social-icons span:hover {
+  transform: translateY(-5px);
 }
 .social-icons a {
   --siLeft: 50%;
@@ -39,9 +55,14 @@
   top: var(--siTop, 50%);
   transform: translate(-50%, -50%);
   display: flex;
-  font-size: 23px;
+  font-size: 20px;
+  color: #a0aec0;
   will-change: left, top;
-  transition: transform 0.3s ease-out;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icons a:hover {
+  color: var(--accentColor);
+  transform: translate(-50%, -50%) scale(1.1);
 }
 .resume-button {
   position: absolute;

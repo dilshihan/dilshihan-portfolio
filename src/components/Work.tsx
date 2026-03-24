@@ -10,18 +10,6 @@ const projects = [
     tools: "React, GSAP, Three.js",
     image: "/images/portfolio.png",
   },
-  {
-    title: "E-Commerce Platform",
-    category: "Full Stack Web App",
-    tools: "React, Node.js, Express, MongoDB",
-    image: "/images/placeholder1.png",
-  },
-  {
-    title: "Task Management Dashboard",
-    category: "Frontend Application",
-    tools: "React.js, Tailwind CSS, Redux",
-    image: "/images/placeholder2.png",
-  },
 
 ];
 
