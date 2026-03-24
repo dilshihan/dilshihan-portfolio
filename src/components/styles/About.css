@@ -16,18 +16,20 @@
   max-width: calc(100% - 15px);
 }
 .about-me h3 {
-  font-size: 25px;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 7px;
-  font-weight: 400;
+  letter-spacing: 4px;
+  font-weight: 500;
   color: var(--accentColor);
+  margin-bottom: 20px;
 }
 
 .about-me p {
-  font-size: 33px;
+  font-size: 24px;
   font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  color: #f1f1f1;
 }
 
 @media only screen and (min-width: 600px) {
