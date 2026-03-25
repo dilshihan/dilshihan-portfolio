@@ -47,13 +47,13 @@ const Scene = () => {
       renderer.setSize(container.width, container.height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1;
+      renderer.toneMappingExposure = 1.4;
       canvasDiv.current.appendChild(renderer.domElement);
 
       const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
       camera.position.z = 10;
-      camera.position.set(0, 13.1, 24.7);
-      camera.zoom = 1.1;
+      camera.position.set(0, 13.1, 22.0);
+      camera.zoom = 1.15;
       camera.updateProjectionMatrix();
 
       let headBone: THREE.Object3D | null = null;
@@ -88,7 +88,7 @@ const Scene = () => {
       });
 
       let mouse = { x: 0, y: 0 },
-        interpolation = { x: 0.1, y: 0.2 };
+        interpolation = { x: 0.15, y: 0.25 };
 
       const onMouseMove = (event: MouseEvent) => {
         handleMouseMove(event, (x, y) => (mouse = { x, y }));
@@ -130,6 +130,9 @@ const Scene = () => {
             THREE.MathUtils.lerp
           );
           light.setPointLight(screenLight);
+        }
+        if (character) {
+          character.position.y = Math.sin(Date.now() * 0.0015) * 0.05;
         }
         const delta = clock.getDelta();
         if (mixer) {

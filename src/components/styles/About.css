@@ -27,10 +27,10 @@
 }
 
 .about-me p {
-  font-family: "Inter", sans-serif;
+  font-family: "Geist", sans-serif;
   font-size: 18px;
-  font-weight: 400;
-  line-height: 1.7;
+  font-weight: 300;
+  line-height: 1.5;
   letter-spacing: -0.01em;
   color: #ccd6f6;
 }
@@ -48,7 +48,6 @@
     padding: 0;
   }
   .about-me p {
-    font-size: 21px;
     line-height: 1.6;
   }
   .about-section {
@@ -69,13 +68,17 @@
     width: 50%;
   }
   .about-me p {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
+    line-height: 1.5;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .about-me p {
+    font-size: 14px;
+    line-height: 1.5;
   }
 }
 @media only screen and (min-width: 1950px) {
   .about-me p {
-    font-size: 2rem;
-    line-height: 2.4rem;
+    line-height: 1.7;
   }
 }

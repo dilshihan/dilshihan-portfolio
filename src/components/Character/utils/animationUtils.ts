@@ -19,7 +19,7 @@ const setAnimations = (gltf: GLTF) => {
       if (clip) {
         const action = mixer?.clipAction(clip);
         action!.play();
-        action!.timeScale = 1.2;
+        action!.timeScale = 1.6;
       } else {
         console.error(`Animation "${name}" not found`);
       }
@@ -29,7 +29,7 @@ const setAnimations = (gltf: GLTF) => {
     if (typingAction) {
       typingAction.enabled = true;
       typingAction.play();
-      typingAction.timeScale = 1.2;
+      typingAction.timeScale = 1.6;
     }
   }
   function startIntro() {
@@ -39,9 +39,29 @@ const setAnimations = (gltf: GLTF) => {
     const introAction = mixer.clipAction(introClip!);
     introAction.clampWhenFinished = true;
     introAction.reset().play();
+    const schedulesRandomBlink = () => {
+      const wait = 2000 + Math.random() * 4000;
+      setTimeout(() => {
+        const blinkAnimation = gltf.animations.find((clip) => clip.name === "Blink");
+        if (blinkAnimation) {
+          const action = mixer.clipAction(blinkAnimation);
+          action.setLoop(THREE.LoopOnce, 1);
+          action.reset().play();
+          action.timeScale = 3.5;
+        }
+        schedulesRandomBlink();
+      }, wait);
+    };
+
     setTimeout(() => {
-      const blink = gltf.animations.find((clip) => clip.name === "Blink");
-      mixer.clipAction(blink!).play().fadeIn(0.5);
+      schedulesRandomBlink();
+      
+      const browup = gltf.animations.find((clip) => clip.name === "browup");
+      if (browup) {
+        const action = mixer.clipAction(browup);
+        action.play();
+        action.setEffectiveWeight(1.0); 
+      }
     }, 2500);
   }
   function hover(gltf: GLTF, hoverDiv: HTMLDivElement) {

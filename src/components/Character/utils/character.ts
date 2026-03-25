@@ -48,6 +48,28 @@ const setCharacter = (
                 child.castShadow = true;
                 child.receiveShadow = true;
                 mesh.frustumCulled = true;
+
+                // Add facial expressions for energy and smile
+                if (mesh.morphTargetDictionary && mesh.morphTargetInfluences) {
+                  const smileIndex = mesh.morphTargetDictionary['mouthSmile'];
+                  const smileLeftIndex = mesh.morphTargetDictionary['mouthSmileLeft'];
+                  const smileRightIndex = mesh.morphTargetDictionary['mouthSmileRight'];
+                  const eyeWideLeftIndex = mesh.morphTargetDictionary['eyeWideLeft'];
+                  const eyeWideRightIndex = mesh.morphTargetDictionary['eyeWideRight'];
+                  const eyeBlinkLeftIndex = mesh.morphTargetDictionary['eyeBlinkLeft'];
+                  const eyeBlinkRightIndex = mesh.morphTargetDictionary['eyeBlinkRight'];
+
+                  if (smileIndex !== undefined) mesh.morphTargetInfluences[smileIndex] = 0.7;
+                  if (smileLeftIndex !== undefined) mesh.morphTargetInfluences[smileLeftIndex] = 0.7;
+                  if (smileRightIndex !== undefined) mesh.morphTargetInfluences[smileRightIndex] = 0.7;
+                  
+                  if (eyeWideLeftIndex !== undefined) mesh.morphTargetInfluences[eyeWideLeftIndex] = 0.5;
+                  if (eyeWideRightIndex !== undefined) mesh.morphTargetInfluences[eyeWideRightIndex] = 0.5;
+                  
+                  // Ensure eyes aren't partially blinked (which looks sleepy)
+                  if (eyeBlinkLeftIndex !== undefined) mesh.morphTargetInfluences[eyeBlinkLeftIndex] = 0;
+                  if (eyeBlinkRightIndex !== undefined) mesh.morphTargetInfluences[eyeBlinkRightIndex] = 0;
+                }
               }
             });
             resolve(gltf);

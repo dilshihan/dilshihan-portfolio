@@ -50,26 +50,31 @@ export const handleHeadRotation = (
       mouseX * maxRotation,
       interpolationY
     );
+    headBone.rotation.z = lerp(
+      headBone.rotation.z,
+      mouseX * 0.1,
+      interpolationY
+    );
     let minRotationX = -0.3;
     let maxRotationX = 0.4;
     if (mouseY > minRotationX) {
       if (mouseY < maxRotationX) {
         headBone.rotation.x = lerp(
           headBone.rotation.x,
-          -mouseY - 0.5 * maxRotation,
+          -mouseY - 0.05 * maxRotation,
           interpolationX
         );
       } else {
         headBone.rotation.x = lerp(
           headBone.rotation.x,
-          -maxRotation - 0.5 * maxRotation,
+          -maxRotation - 0.05 * maxRotation,
           interpolationX
         );
       }
     } else {
       headBone.rotation.x = lerp(
         headBone.rotation.x,
-        -minRotationX - 0.5 * maxRotation,
+        -minRotationX - 0.05 * maxRotation,
         interpolationX
       );
     }
