@@ -5,7 +5,6 @@ import {
   Environment, 
   RoundedBox, 
   PerspectiveCamera, 
-  Text,
   Float, 
   ContactShadows,
 } from "@react-three/drei";
@@ -221,7 +220,6 @@ const TechStack = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
       const section = document.getElementById("techstack");
       if (section) {
         const rect = section.getBoundingClientRect();
