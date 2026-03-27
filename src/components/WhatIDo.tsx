@@ -102,7 +102,7 @@ const WhatIDo = () => {
                 <div className="what-tags">HTML5</div>
                 <div className="what-tags">CSS3</div>
               </div>
-              <div className="what-arrow"></div>
+
             </div>
           </div>
           <div
@@ -139,7 +139,7 @@ const WhatIDo = () => {
                 <div className="what-tags">PostgreSQL</div>
                 <div className="what-tags">REST APIs</div>
               </div>
-              <div className="what-arrow"></div>
+
             </div>
           </div>
         </div>

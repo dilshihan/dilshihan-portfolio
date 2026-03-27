@@ -52,16 +52,21 @@
 
 .what-noTouch:hover,
 .what-content-active {
-  min-height: 67%;
+  min-height: 100%;
   padding: 40px 50px;
 }
 
 .what-noTouch:hover ~ .what-content,
 .what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
-  min-height: 33%;
-  padding: 10px 50px;
+  min-height: 0%;
+  height: 0;
+  padding: 0 50px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
+
 .what-content h3 {
   font-size: 35px;
   letter-spacing: 1px;
@@ -142,30 +147,7 @@
   border-left: none;
   border-top: none;
 }
-.what-arrow {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 25px;
-  height: 25px;
-  border: 1px solid #fff;
-}
-.what-arrow::before {
-  content: "";
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  transition: 0.5s;
-  width: 10px;
-  height: 10px;
-}
-.what-noTouch:hover .what-arrow::before,
-.what-content-active .what-arrow::before {
-  transform: translate(-50%, -20%) rotate(-225deg);
-}
+
 .what-border1 {
   position: absolute;
   top: 0;
@@ -263,13 +245,16 @@
   }
   .what-noTouch:hover,
   .what-content-active {
-    padding: 20px 30px;
+    padding: 10px 30px;
+    min-height: 100%;
   }
 
   .what-noTouch:hover ~ .what-content,
   .what-box-in:hover .what-noTouch:not(:hover),
   .what-content.what-sibling {
-    padding: 10px 30px;
+    padding: 0 30px;
+    min-height: 0%;
+    height: 0;
   }
   .what-tags {
     font-size: 12px;
@@ -302,15 +287,16 @@
   }
   .what-noTouch:hover,
   .what-content-active {
-    min-height: 67%;
+    min-height: 100%;
     padding: 50px;
   }
 
   .what-noTouch:hover ~ .what-content,
   .what-box-in:hover .what-noTouch:not(:hover),
   .what-content.what-sibling {
-    min-height: 33%;
-    padding: 10px 50px;
+    min-height: 0%;
+    height: 0;
+    padding: 0 50px;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -360,6 +346,7 @@
   .what-noTouch:hover,
   .what-content-active {
     padding: 10px 30px;
+    min-height: 100%;
   }
   .what-tags {
     font-size: 11px;
@@ -368,7 +355,9 @@
   .what-noTouch:hover ~ .what-content,
   .what-box-in:hover .what-noTouch:not(:hover),
   .what-content.what-sibling {
-    padding: 5px 30px;
+    padding: 0 30px;
+    min-height: 0%;
+    height: 0;
   }
   .what-content h3 {
     font-size: 25px;
